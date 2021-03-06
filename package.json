@@ -5,12 +5,16 @@
   "main": "index.js",
   "license": "MIT",
   "private": true,
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/shared/*"
+  ],
   "author": {
     "name": "Wesley Oliveira",
     "email": "wesleyoliveiradeveloper@gmail.com"
   },
   "devDependencies": {
-    "lerna": "^4.0.0"
+    "lerna": "^4.0.0",
+    "typescript": "^4.2.3",
+    "@bookstore/styleguides": "*"
   }
 }
