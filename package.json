@@ -1,0 +1,16 @@
+{
+  "name": "bookstore",
+  "description": "A simple e-commerce application using Node.JS, Next.JS, Typescript and others.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "workspaces": ["packages/*"],
+  "author": {
+    "name": "Wesley Oliveira",
+    "email": "wesleyoliveiradeveloper@gmail.com"
+  },
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
+}
