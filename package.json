@@ -6,7 +6,8 @@
   "license": "MIT",
   "private": true,
   "workspaces": [
-    "packages/shared/*"
+    "packages/shared/*",
+    "packages/server"
   ],
   "author": {
     "name": "Wesley Oliveira",
