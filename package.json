@@ -12,9 +12,21 @@
     "name": "Wesley Oliveira",
     "email": "wesleyoliveiradeveloper@gmail.com"
   },
+  "scripts": {
+    "prepare": "husky install",
+    "commit:cz": "exec < /dev/tty && git cz --hook || true"
+  },
   "devDependencies": {
+    "@bookstore/styleguides": "*",
+    "commitizen": "^4.2.3",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^5.1.3",
     "lerna": "^4.0.0",
-    "typescript": "^4.2.3",
-    "@bookstore/styleguides": "*"
+    "typescript": "^4.2.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   }
 }
