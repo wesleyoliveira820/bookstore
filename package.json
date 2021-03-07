@@ -7,7 +7,8 @@
   "private": true,
   "workspaces": [
     "packages/shared/*",
-    "packages/server"
+    "packages/server",
+    "packages/client"
   ],
   "author": {
     "name": "Wesley Oliveira",
