@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import "dotenv/config";
 import express, { Express } from "express";
 import cors from "cors";
@@ -5,6 +6,7 @@ import corsConfig from "@config/cors";
 import jsonParserConfig from "@config/jsonParser";
 import helmet from "helmet";
 import routes from "./routes";
+import "../database";
 
 class Server {
   public readonly http: Express;

@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "dev:server": "tsnd -r tsconfig-paths/register --respawn --ignore-watch node_modules --transpile-only --clear src/start",
-    "test": "jest --no-cache"
+    "test": "jest --no-cache",
+    "typeorm": "tsnd -r tsconfig-paths/register ../../node_modules/typeorm/cli"
   },
   "devDependencies": {
     "@types/cors": "^2.8.10",
@@ -24,6 +25,9 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "helmet": "^4.4.1",
+    "pg": "^8.5.1",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.31",
     "winston": "^3.3.3"
   }
 }
