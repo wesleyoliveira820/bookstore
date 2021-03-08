@@ -7,7 +7,7 @@
   "scripts": {
     "dev:server": "tsnd -r tsconfig-paths/register --respawn --ignore-watch node_modules --transpile-only --clear src/start",
     "test": "jest --no-cache",
-    "typeorm": "tsnd -r tsconfig-paths/register ../../node_modules/typeorm/cli"
+    "typeorm": "tsnd -r tsconfig-paths/register ../../node_modules/typeorm/cli --config ./src/config/database.ts"
   },
   "devDependencies": {
     "@types/cors": "^2.8.10",
