@@ -18,7 +18,8 @@
       "@components/*": ["components/*"],
       "@interfaces/*": ["interfaces/*"],
       "@services/*": ["services/*"],
-      "@utils/*": ["utils/*"]
+      "@utils/*": ["utils/*"],
+      "@store/*": ["store/*"]
     },
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
