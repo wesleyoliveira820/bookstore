@@ -1,5 +1,5 @@
 export default {
-  origin: false,
+  origin: true,
   methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
   exposeHeaders: false,
   credentials: false,

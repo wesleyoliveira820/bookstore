@@ -23,6 +23,11 @@ module.exports = {
   rules: {
     "prettier/prettier": "error",
     "@typescript-eslint/no-var-requires": "off",
+    "class-methods-use-this": "off",
+    "import/prefer-default-export": "off",
+    "no-param-reassign": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    camelcase: "off",
     "import/no-unresolved": "off",
     "import/no-extraneous-dependencies": [
       "error",
@@ -36,12 +41,14 @@ module.exports = {
       {
         js: "never",
         ts: "never",
+        tsx: "never",
       },
     ],
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
     "react/jsx-filename-extension": [1, { extensions: [".ts", ".tsx"] }],
     "react/jsx-props-no-spreading": "off",
+    "@typescript-eslint/no-explicit-any": "off",
   },
   settings: {
     "import/resolver": {

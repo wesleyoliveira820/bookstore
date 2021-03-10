@@ -17,7 +17,11 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": "./src",
     "paths": {
-      "@config/*": ["config/*"]
+      "@config/*": ["config/*"],
+      "@database/*": ["database/*"],
+      "@typeorm/*": ["typeorm/*"],
+      "@utils/*": ["utils/*"],
+      "@controllers/*": ["controllers/*"]
     }
   },
   "include": [

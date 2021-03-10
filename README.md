@@ -10,6 +10,6 @@
   <img src="https://img.shields.io/github/license/wesleyoliveira820/bookstore" />
 </div>
 
-<h3 align="center">
-	🚧  Bookstore 🚀 Em construção...  🚧
-</h3>
+<h2 align="center">
+  🚧  Bookstore 🚀 Em construção...  🚧
+</h2>

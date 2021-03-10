@@ -5,8 +5,10 @@ import cors from "cors";
 import corsConfig from "@config/cors";
 import jsonParserConfig from "@config/jsonParser";
 import helmet from "helmet";
+import createConnection from "@database/index";
 import routes from "./routes";
-import "../database";
+
+createConnection();
 
 class Server {
   public readonly http: Express;

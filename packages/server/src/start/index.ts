@@ -1,5 +1,6 @@
+import "dotenv/config";
+import logger from "@utils/logger";
 import Server from "./server";
-import logger from "../utils/logger";
 
 const server = new Server();
 

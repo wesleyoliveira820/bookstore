@@ -1,6 +1,7 @@
-import { createConnection } from "typeorm";
+import { Connection, createConnection } from "typeorm";
 import databaseConfig from "@config/database";
 
-const connection = createConnection(databaseConfig);
+const initializedb = async (): Promise<Connection> =>
+  createConnection(databaseConfig);
 
-export default connection;
+export default initializedb;

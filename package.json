@@ -21,6 +21,12 @@
   "lint-staged": {
     "*.ts": ["eslint --fix ./packages/**/*.ts"]
   },
+  "keywords": [
+    "ecommerce",
+    "nextjs",
+    "typescript",
+    "nodejs"
+  ],
   "devDependencies": {
     "@bookstore/styleguides": "*",
     "commitizen": "^4.2.3",
