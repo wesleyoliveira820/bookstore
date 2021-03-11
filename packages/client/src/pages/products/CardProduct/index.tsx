@@ -16,7 +16,7 @@ const CardProduct: FC<IProductProps> = ({
 }) => {
   const dispatch = useDispatch();
 
-  function handleTestRedux(product_id: string) {
+  function handleAddProductToCart(product_id: string) {
     dispatch(addProductToCartRequest(product_id));
   }
 
@@ -40,7 +40,7 @@ const CardProduct: FC<IProductProps> = ({
         <p className="product-title">{title}</p>
       </Title>
       <Footer>
-        <Button onClick={() => handleTestRedux(id)}>
+        <Button onClick={() => handleAddProductToCart(id)}>
           Adicionar ao carrinho
         </Button>
       </Footer>
