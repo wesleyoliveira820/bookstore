@@ -15,7 +15,7 @@ const cartReducer = (
   switch (action.type) {
     case HYDRATE:
       return [...state, action.payload];
-    case "@TEST":
+    case "@TEST_SUCCESS":
       return state;
     default:
       return state;

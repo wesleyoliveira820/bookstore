@@ -49,6 +49,7 @@ module.exports = {
     "react/jsx-filename-extension": [1, { extensions: [".ts", ".tsx"] }],
     "react/jsx-props-no-spreading": "off",
     "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
   },
   settings: {
     "import/resolver": {

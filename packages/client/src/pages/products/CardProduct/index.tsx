@@ -12,7 +12,7 @@ const CardProduct: FC<IProductProps> = ({ cover_url, title, unit_price }) => {
 
   function handleTestRedux() {
     dispatch({
-      type: "@TEST",
+      type: "@TEST_REQUEST",
     });
   }
 
