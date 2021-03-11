@@ -1,5 +1,10 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { lighten } from "polished";
+
+const rotationLoader = keyframes`
+  0% { transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
+`;
 
 export const Container = styled.button`
   width: 100%;
@@ -17,4 +22,14 @@ export const Container = styled.button`
     background-color: ${(props) =>
       lighten(0.05, props.theme.colors.brand.primary)};
   }
+`;
+
+export const Loader = styled.div`
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 4px solid ${(props) => lighten(0.2, props.theme.colors.brand.primary)};
+  border-top: 4px solid ${(props) => props.theme.colors.bg.primary};
+  margin: auto;
+  animation: ${rotationLoader} 1s infinite linear;
 `;
