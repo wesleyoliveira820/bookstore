@@ -50,6 +50,8 @@ module.exports = {
     "react/jsx-props-no-spreading": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
+    "consistent-return": "off",
+    "no-case-declarations": "off",
   },
   settings: {
     "import/resolver": {

@@ -1,5 +1,5 @@
 export interface IProductProps {
-  id?: string;
+  id: string;
   title: string;
   cover_url: string;
   unit_price: string;

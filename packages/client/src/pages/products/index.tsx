@@ -27,6 +27,7 @@ const Products: NextPage<IResponseServerSide> = ({ products }) => (
         {products?.map((product) => (
           <CardProduct
             key={product.id}
+            id={product.id}
             cover_url={product.cover_url}
             title={product.title}
             unit_price={formatPrice(parseFloat(product.unit_price))}

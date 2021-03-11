@@ -1,19 +1,23 @@
 import { FC } from "react";
 import Image from "next/image";
 import { useDispatch } from "react-redux";
+import { addProductToCartRequest } from "@store/modules/cart/actions";
 
 import Button from "@components/Button";
 import { IProductProps } from "@interfaces/products";
 
 import { Container, CardImage, Price, Title, Footer } from "./styles";
 
-const CardProduct: FC<IProductProps> = ({ cover_url, title, unit_price }) => {
+const CardProduct: FC<IProductProps> = ({
+  id,
+  cover_url,
+  title,
+  unit_price,
+}) => {
   const dispatch = useDispatch();
 
-  function handleTestRedux() {
-    dispatch({
-      type: "@TEST_REQUEST",
-    });
+  function handleTestRedux(product_id: string) {
+    dispatch(addProductToCartRequest(product_id));
   }
 
   return (
@@ -36,7 +40,9 @@ const CardProduct: FC<IProductProps> = ({ cover_url, title, unit_price }) => {
         <p className="product-title">{title}</p>
       </Title>
       <Footer>
-        <Button onClick={handleTestRedux}>Adicionar ao carrinho</Button>
+        <Button onClick={() => handleTestRedux(id)}>
+          Adicionar ao carrinho
+        </Button>
       </Footer>
     </Container>
   );

@@ -33,14 +33,14 @@ Bookstore nada mais é do que uma simples loja virtual de livros onde tem como p
 - [] CRUD de produtos no carrinho de compras
 - [] Checkout 1 - Formulário de informações de envio
 - [] Checkout 2 - Escolha de método de pagamento
-- [] Checkout 3 - Confirmação de dados e criação de pedido
-- [] Checkout 3 - Formulário de pagamento com mercado pago
+- [] Checkout 3 - Criação de pedido e integração com mercado pago
 
 ### Tecnologias utilizadas (Até o momento)
 
 * [Typescript](https://www.typescriptlang.org/)
 * [Next.JS](https://nextjs.org/)
 * [Styled components](https://styled-components.com/)
+* [Redux](https://redux.js.org/)
 * [Node.JS](https://nodejs.org/en/)
 * [Typeorm](https://typeorm.io/#/)
 * [PostgreSQL](https://www.postgresql.org/)
