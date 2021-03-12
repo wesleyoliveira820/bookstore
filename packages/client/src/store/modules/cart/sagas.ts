@@ -14,6 +14,14 @@ interface IActionProps {
   id: string;
 }
 
+interface IUpdateQuantityProps {
+  type: string;
+  payload: {
+    id: string;
+    quantity_cart: number;
+  };
+}
+
 interface IServerProductProps extends IProductProps {
   quantity_stock: number;
 }
@@ -71,4 +79,24 @@ function* addProductToCart(action: IActionProps) {
   Router.push("/cart");
 }
 
-export default all([takeLatest("@cart/ADD_PRODUCT_REQUEST", addProductToCart)]);
+function* updateQuantityProduct({ payload }: IUpdateQuantityProps) {
+  if (payload.quantity_cart <= 0) return;
+
+  const product: AxiosResponse<IServerProductProps> = yield call(
+    axios.get,
+    `/stock/${payload.id}`
+  );
+
+  const { quantity_stock } = product.data;
+
+  if (payload.quantity_cart > quantity_stock) {
+    return toast.error("A quantidade solicitada está fora de estoque.");
+  }
+
+  yield put(updateProductQuantitySuccess(payload.id, payload.quantity_cart));
+}
+
+export default all([
+  takeLatest("@cart/ADD_PRODUCT_REQUEST", addProductToCart),
+  takeLatest("@cart/UPDATE_QUANTITY_REQUEST", updateQuantityProduct),
+]);

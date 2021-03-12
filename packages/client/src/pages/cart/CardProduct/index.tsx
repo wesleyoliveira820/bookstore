@@ -5,7 +5,10 @@ import { FaRegTrashAlt } from "react-icons/fa";
 
 import { IProductProps } from "@interfaces/products";
 
-import { removeProductFromCart } from "@store/modules/cart/actions";
+import {
+  removeProductFromCart,
+  updateQuantityProductRequest,
+} from "@store/modules/cart/actions";
 import {
   Container,
   CardImage,
@@ -31,6 +34,18 @@ const CardProduct: FC<ICartProductProps> = ({
 
   function handleRemoveProductFromCart() {
     dispatch(removeProductFromCart(id));
+  }
+
+  function handleDecrementQuantityProduct() {
+    const newQuantity = quantity_cart - 1;
+
+    dispatch(updateQuantityProductRequest(id, newQuantity));
+  }
+
+  function handleIncrementQuantityProduct() {
+    const newQuantity = quantity_cart + 1;
+
+    dispatch(updateQuantityProductRequest(id, newQuantity));
   }
 
   return (
@@ -60,9 +75,19 @@ const CardProduct: FC<ICartProductProps> = ({
         <ContentFooter>
           <p className="quantity-cart-label">Quantidade:</p>
           <div className="container-control-quantity-cart">
-            <ButtonQuantity type="button">-</ButtonQuantity>
+            <ButtonQuantity
+              type="button"
+              onClick={handleDecrementQuantityProduct}
+            >
+              -
+            </ButtonQuantity>
             <input value={quantity_cart} disabled />
-            <ButtonQuantity type="button">+</ButtonQuantity>
+            <ButtonQuantity
+              type="button"
+              onClick={handleIncrementQuantityProduct}
+            >
+              +
+            </ButtonQuantity>
           </div>
         </ContentFooter>
       </Content>

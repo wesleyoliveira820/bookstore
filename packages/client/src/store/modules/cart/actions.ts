@@ -5,6 +5,16 @@ export function addProductToCartRequest(id: string) {
   };
 }
 
+export function updateQuantityProductRequest(id: string, quantity: number) {
+  return {
+    type: "@cart/UPDATE_QUANTITY_REQUEST",
+    payload: {
+      id,
+      quantity_cart: quantity,
+    },
+  };
+}
+
 export function updateProductQuantitySuccess(id: string, quantity: number) {
   return {
     type: "@cart/UPDATE_QUANTITY_SUCCESS",
