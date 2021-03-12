@@ -22,10 +22,12 @@ const cartReducer = (
       return produce(state, (draft) => {
         draft.push(action.payload);
       });
+
     case "@cart/ADD_PRODUCT_SUCCESS":
       return produce(state, (draft) => {
         draft.push(action.payload);
       });
+
     case "@cart/UPDATE_QUANTITY_SUCCESS":
       const { quantity_cart, id } = action.payload;
 
@@ -34,6 +36,17 @@ const cartReducer = (
 
         if (productIndex >= 0) {
           draft[productIndex].quantity_cart = quantity_cart;
+        }
+      });
+
+    case "@cart/REMOVE_PRODUCT":
+      return produce(state, (draft) => {
+        const productIndex = draft.findIndex(
+          (product) => product.id === action.payload.id
+        );
+
+        if (productIndex >= 0) {
+          draft.splice(productIndex, 1);
         }
       });
     default:

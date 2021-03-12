@@ -14,3 +14,12 @@ export function updateProductQuantitySuccess(id: string, quantity: number) {
     },
   };
 }
+
+export function removeProductFromCart(id: string) {
+  return {
+    type: "@cart/REMOVE_PRODUCT",
+    payload: {
+      id,
+    },
+  };
+}
