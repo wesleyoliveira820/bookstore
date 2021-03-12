@@ -1,10 +1,12 @@
 import { call, select, put, all, takeLatest } from "redux-saga/effects";
 import { AxiosResponse } from "axios";
 import { toast } from "react-toastify";
+import Router from "next/router";
 
 import axios from "@services/axios";
 import { IProductProps } from "@interfaces/products";
 
+import { formatPrice } from "@utils/fotmat";
 import { updateProductQuantitySuccess } from "./actions";
 
 interface IActionProps {
@@ -52,6 +54,8 @@ function* addProductToCart(action: IActionProps) {
       updateProductQuantitySuccess(productExistsInCart.id, newQuantityCart)
     );
 
+    Router.push("/cart");
+
     return;
   }
 
@@ -59,9 +63,12 @@ function* addProductToCart(action: IActionProps) {
     type: "@cart/ADD_PRODUCT_SUCCESS",
     payload: {
       ...product.data,
+      unit_price: formatPrice(parseFloat(product.data.unit_price)),
       quantity_cart: newQuantityCart,
     },
   });
+
+  Router.push("/cart");
 }
 
 export default all([takeLatest("@cart/ADD_PRODUCT_REQUEST", addProductToCart)]);

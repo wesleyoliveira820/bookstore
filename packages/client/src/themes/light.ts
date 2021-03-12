@@ -14,4 +14,10 @@ export default {
   divider: {
     primary: "#BEBDBD",
   },
+  icons: {
+    primary: "#757575",
+  },
+  helpers: {
+    error: "#EC0000",
+  },
 } as IColorProps;

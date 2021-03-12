@@ -12,4 +12,10 @@ export interface IColorProps {
   divider: {
     primary: string;
   };
+  helpers: {
+    error: string;
+  };
+  icons: {
+    primary: string;
+  };
 }
