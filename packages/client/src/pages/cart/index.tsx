@@ -4,7 +4,9 @@ import { useSelector } from "react-redux";
 
 import Header from "@components/Header";
 import { IProductProps } from "@interfaces/products";
+import Condition from "@components/Condition";
 import CardProduct from "./CardProduct";
+import EmptyStateElement from "./EmptyStateElement";
 
 import { Container, Content, CardContainer } from "./styles";
 
@@ -22,17 +24,22 @@ const Cart: NextPage = () => {
   return (
     <Container>
       <Head>
-        <title>Bookstore - Carrinho de compras</title>
+        <title>Carrinho de compras</title>
       </Head>
       <Header />
-      <Content>
-        <CardContainer>
-          <h4>Meu carrinho</h4>
-          {cart?.map((product) => (
-            <CardProduct key={product.id} {...product} />
-          ))}
-        </CardContainer>
-      </Content>
+      <Condition
+        condition={cart.length === 0}
+        enterCondition={<EmptyStateElement />}
+      >
+        <Content>
+          <CardContainer>
+            <h4>Meu carrinho</h4>
+            {cart.map((product) => (
+              <CardProduct key={product.id} {...product} />
+            ))}
+          </CardContainer>
+        </Content>
+      </Condition>
     </Container>
   );
 };
