@@ -9,6 +9,7 @@ export const Content = styled.div`
   max-width: 1126px;
   width: 100%;
   display: flex;
+  justify-content: space-between;
   align-items: flex-start;
   margin: 0 auto 16px;
 `;

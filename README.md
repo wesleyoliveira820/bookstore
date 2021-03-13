@@ -18,7 +18,7 @@
 ## Sobre
 
 <p align="center">
-  <img src="./.github/screenshot_home.png" />
+  <img src="./.github/show.gif" />
 </p>
 
 Bookstore nada mais é do que uma simples loja virtual de livros onde tem como principais funcionalidades um fluxo de escolha de produto, carrinho e checkout para pagamento, o principal objetivo de realizar este projeto foi para aprender e entender como funcionam certas tecnologias como Next.JS, api de pagamentos do mercado pago (Ainda será implementado), conceitos de SSR (Server side rendering) entre outros. Este projeto ainda não foi concluído e o readme será atualizado conforme as alterações no projeto.

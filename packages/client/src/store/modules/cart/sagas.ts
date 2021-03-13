@@ -71,7 +71,7 @@ function* addProductToCart(action: IActionProps) {
     type: "@cart/ADD_PRODUCT_SUCCESS",
     payload: {
       ...product.data,
-      unit_price: formatPrice(parseFloat(product.data.unit_price)),
+      price_formatted: formatPrice(parseFloat(product.data.unit_price)),
       quantity_cart: newQuantityCart,
     },
   });

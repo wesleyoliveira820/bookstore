@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import Header from "@components/Header";
 import { IProductProps } from "@interfaces/products";
 import Condition from "@components/Condition";
+import ResumePurchase from "@components/ResumePurchase";
 import CardProduct from "./CardProduct";
 import EmptyStateElement from "./EmptyStateElement";
 
@@ -12,6 +13,7 @@ import { Container, Content, CardContainer } from "./styles";
 
 interface ICartProductProps extends IProductProps {
   quantity_cart: number;
+  price_formatted: string;
 }
 
 interface IStateProps {
@@ -38,6 +40,7 @@ const Cart: NextPage = () => {
               <CardProduct key={product.id} {...product} />
             ))}
           </CardContainer>
+          <ResumePurchase />
         </Content>
       </Condition>
     </Container>

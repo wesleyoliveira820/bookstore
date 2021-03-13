@@ -1,22 +1,38 @@
 import styled, { keyframes } from "styled-components";
 import { lighten } from "polished";
 
+interface IButtonProps {
+  size?: string;
+}
+
 const rotationLoader = keyframes`
   0% { transform: rotate(0deg);}
   100% {transform: rotate(360deg);}
 `;
 
-export const Container = styled.button`
+export const Container = styled.button<IButtonProps>`
   width: 100%;
-  height: 40px;
   border: 0;
   border-radius: 5px;
   background-color: ${(props) => props.theme.colors.brand.primary};
   color: ${(props) => props.theme.colors.text.secondary};
-  font-size: 15px;
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.2s;
+
+  ${(props) =>
+    props.size === "medium" &&
+    `
+      height: 40px;
+      font-size: 15px;
+  `}
+
+  ${(props) =>
+    props.size === "large" &&
+    `
+      height: 48px;
+      font-size: 16px;
+  `}
 
   &:hover {
     background-color: ${(props) =>

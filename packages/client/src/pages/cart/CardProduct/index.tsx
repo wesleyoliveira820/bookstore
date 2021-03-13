@@ -21,13 +21,14 @@ import {
 
 interface ICartProductProps extends IProductProps {
   quantity_cart: number;
+  price_formatted: string;
 }
 
 const CardProduct: FC<ICartProductProps> = ({
   id,
   title,
   cover_url,
-  unit_price,
+  price_formatted,
   quantity_cart,
 }) => {
   const dispatch = useDispatch();
@@ -65,7 +66,7 @@ const CardProduct: FC<ICartProductProps> = ({
         <ContentHeader>
           <div>
             <p className="title-product-cart">{title}</p>
-            <strong className="price-product-cart">{unit_price}</strong>
+            <strong className="price-product-cart">{price_formatted}</strong>
           </div>
           <ButtonTrash type="button" onClick={handleRemoveProductFromCart}>
             <FaRegTrashAlt className="trash-icon" size={18} />
