@@ -12,7 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 const MyApp: NextPage<AppProps> = ({ Component, pageProps }) => (
   <ThemeProvider theme={{ colors: themeLight }}>
     <GlobalStyles />
-    <ToastContainer position="bottom-left" limit={1} />
+    <ToastContainer position="bottom-left" limit={3} autoClose={3000} />
     <Component {...pageProps} />
   </ThemeProvider>
 );
