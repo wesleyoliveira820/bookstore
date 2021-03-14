@@ -19,7 +19,7 @@ export function addProductToCartSuccess(product: IAddProductSuccessProps) {
   };
 }
 
-export function updateQuantityProductRequest(id: string, quantity: number) {
+export function updateProductRequest(id: string, quantity: number) {
   return {
     type: "@cart/UPDATE_QUANTITY_REQUEST",
     payload: {

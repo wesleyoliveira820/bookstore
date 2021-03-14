@@ -7,7 +7,7 @@ import { IProductProps } from "@interfaces/products";
 
 import {
   removeProductFromCart,
-  updateQuantityProductRequest,
+  updateProductRequest,
 } from "@store/modules/cart/actions";
 import {
   Container,
@@ -40,13 +40,13 @@ const CardProduct: FC<ICartProductProps> = ({
   function handleDecrementQuantityProduct() {
     const newQuantity = quantity_cart - 1;
 
-    dispatch(updateQuantityProductRequest(id, newQuantity));
+    dispatch(updateProductRequest(id, newQuantity));
   }
 
   function handleIncrementQuantityProduct() {
     const newQuantity = quantity_cart + 1;
 
-    dispatch(updateQuantityProductRequest(id, newQuantity));
+    dispatch(updateProductRequest(id, newQuantity));
   }
 
   return (

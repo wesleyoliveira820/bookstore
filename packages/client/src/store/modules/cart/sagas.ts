@@ -4,9 +4,9 @@ import { toast } from "react-toastify";
 import Router from "next/router";
 
 import axios from "@services/axios";
-import { IProductProps } from "@interfaces/products";
-
+import { ICartProductProps, IServerProductProps } from "@interfaces/products";
 import { formatPrice } from "@utils/fotmat";
+
 import { addProductToCartSuccess, updateProductSuccess } from "./actions";
 
 interface IActionProps {
@@ -14,20 +14,14 @@ interface IActionProps {
   id: string;
 }
 
+interface IPayloadProps {
+  id: string;
+  quantity_cart: number;
+}
+
 interface IUpdateQuantityProps {
   type: string;
-  payload: {
-    id: string;
-    quantity_cart: number;
-  };
-}
-
-interface IServerProductProps extends IProductProps {
-  quantity_stock: number;
-}
-
-interface ICartProductProps extends IProductProps {
-  quantity_cart: number;
+  payload: IPayloadProps;
 }
 
 interface IStateProps {

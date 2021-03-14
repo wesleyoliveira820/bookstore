@@ -1,10 +1,6 @@
 import { HYDRATE } from "next-redux-wrapper";
 import produce from "immer";
-import { IProductProps } from "@interfaces/products";
-
-interface ICartProductProps extends IProductProps {
-  quantity_cart: number;
-}
+import { ICartProductProps } from "@interfaces/products";
 
 interface IActionProps {
   type: string;

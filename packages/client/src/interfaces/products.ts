@@ -4,3 +4,11 @@ export interface IProductProps {
   cover_url: string;
   unit_price: string;
 }
+
+export interface IServerProductProps extends IProductProps {
+  quantity_stock: number;
+}
+
+export interface ICartProductProps extends IProductProps {
+  quantity_cart: number;
+}
