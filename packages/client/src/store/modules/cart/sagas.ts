@@ -7,7 +7,7 @@ import axios from "@services/axios";
 import { IProductProps } from "@interfaces/products";
 
 import { formatPrice } from "@utils/fotmat";
-import { updateProductQuantitySuccess } from "./actions";
+import { addProductToCartSuccess, updateProductSuccess } from "./actions";
 
 interface IActionProps {
   type: string;
@@ -34,16 +34,20 @@ interface IStateProps {
   cart: IServerProductProps[];
 }
 
+type ProductAPIResponse = AxiosResponse<IServerProductProps>;
+
+function* getProductStock(id: string) {
+  const product: ProductAPIResponse = yield call(axios.get, `/stock/${id}`);
+  return product;
+}
+
 function* addProductToCart(action: IActionProps) {
   const productExistsInCart: ICartProductProps = yield select(
     (state: IStateProps) =>
       state.cart.find((product) => product.id === action.id)
   );
 
-  const product: AxiosResponse<IServerProductProps> = yield call(
-    axios.get,
-    `/stock/${action.id}`
-  );
+  const product: ProductAPIResponse = yield getProductStock(action.id);
 
   const quantityInStock = product.data.quantity_stock;
 
@@ -58,23 +62,23 @@ function* addProductToCart(action: IActionProps) {
   }
 
   if (productExistsInCart) {
-    yield put(
-      updateProductQuantitySuccess(productExistsInCart.id, newQuantityCart)
-    );
-
+    yield put(updateProductSuccess(productExistsInCart.id, newQuantityCart));
     Router.push("/cart");
 
     return;
   }
 
-  yield put({
-    type: "@cart/ADD_PRODUCT_SUCCESS",
-    payload: {
+  const unitPriceParsed = parseFloat(product.data.unit_price);
+
+  const priceFormatted = formatPrice(unitPriceParsed);
+
+  yield put(
+    addProductToCartSuccess({
       ...product.data,
-      price_formatted: formatPrice(parseFloat(product.data.unit_price)),
+      price_formatted: priceFormatted,
       quantity_cart: newQuantityCart,
-    },
-  });
+    })
+  );
 
   Router.push("/cart");
 }
@@ -82,18 +86,15 @@ function* addProductToCart(action: IActionProps) {
 function* updateQuantityProduct({ payload }: IUpdateQuantityProps) {
   if (payload.quantity_cart <= 0) return;
 
-  const product: AxiosResponse<IServerProductProps> = yield call(
-    axios.get,
-    `/stock/${payload.id}`
-  );
+  const product: ProductAPIResponse = yield getProductStock(payload.id);
 
-  const { quantity_stock } = product.data;
+  const quantityStock = product.data.quantity_stock;
 
-  if (payload.quantity_cart > quantity_stock) {
+  if (payload.quantity_cart > quantityStock) {
     return toast.error("A quantidade solicitada está fora de estoque.");
   }
 
-  yield put(updateProductQuantitySuccess(payload.id, payload.quantity_cart));
+  yield put(updateProductSuccess(payload.id, payload.quantity_cart));
 }
 
 export default all([
