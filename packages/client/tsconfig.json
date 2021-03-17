@@ -20,7 +20,8 @@
       "@services/*": ["services/*"],
       "@utils/*": ["utils/*"],
       "@store/*": ["store/*"],
-      "@contexts/*": ["contexts/*"]
+      "@contexts/*": ["contexts/*"],
+      "@hooks/*": ["hooks/*"]
     },
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,

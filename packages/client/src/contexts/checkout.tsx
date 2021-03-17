@@ -1,16 +1,6 @@
+import { IAddressProps } from "@interfaces/checkout";
 import { FC, createContext, useState } from "react";
 import { validateAddress } from "validators/checkout";
-
-interface IAddressProps {
-  name: string;
-  email: string;
-  zip_code: string;
-  state: string;
-  city: string;
-  district: string;
-  street: string;
-  number?: string;
-}
 
 interface ICheckoutProps {
   address: IAddressProps;
@@ -30,6 +20,7 @@ const INITIAL_CONTEXT = {
     city: "",
     district: "",
     street: "",
+    number: "",
   },
 };
 

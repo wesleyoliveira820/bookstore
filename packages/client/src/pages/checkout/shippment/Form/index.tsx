@@ -3,20 +3,10 @@ import { FormHandles, SubmitHandler } from "@unform/core";
 
 import InputText from "@components/InputText";
 import Button from "@components/Button";
+import { IAddressProps } from "@interfaces/checkout";
+import useCheckout from "@hooks/useCheckout";
 
-import useCheckout from "hooks/useCheckout";
 import { Container, Form } from "./styles";
-
-interface IAddressProps {
-  name: string;
-  email: string;
-  zip_code: string;
-  state: string;
-  city: string;
-  district: string;
-  street: string;
-  number?: string;
-}
 
 const ShippmentForm: FC = () => {
   const formRef = useRef<FormHandles>(null);
