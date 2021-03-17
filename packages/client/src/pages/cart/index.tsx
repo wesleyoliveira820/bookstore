@@ -40,7 +40,7 @@ const Cart: NextPage = () => {
               <CardProduct key={product.id} {...product} />
             ))}
           </CardContainer>
-          <ResumePurchase />
+          <ResumePurchase showButton />
         </Content>
       </Condition>
     </Container>

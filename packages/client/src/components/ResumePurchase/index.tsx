@@ -17,7 +17,11 @@ interface IState {
   cart: ICartProductProps[];
 }
 
-const ResumePurchase: FC = () => {
+interface IProps {
+  showButton?: boolean;
+}
+
+const ResumePurchase: FC<IProps> = ({ showButton = false }) => {
   function calculatesTotalCart(
     totalSum: number,
     unitPrice: string,
@@ -68,7 +72,7 @@ const ResumePurchase: FC = () => {
             </strong>
           </RowPropertie>
         </ul>
-        <Condition condition={Router.pathname !== "/cart"}>
+        <Condition condition={!showButton}>
           <Button size="large" onClick={handleGoCheckoutPage}>
             Finalizar pedido
           </Button>
