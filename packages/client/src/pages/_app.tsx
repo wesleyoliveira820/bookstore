@@ -4,6 +4,7 @@ import { storeWrapper } from "@store/index";
 import { ThemeProvider } from "styled-components";
 import { ToastContainer } from "react-toastify";
 
+import CheckoutProvider from "@contexts/checkout";
 import themeLight from "../themes/light";
 import GlobalStyles from "../styles/global";
 
@@ -13,7 +14,9 @@ const MyApp: NextPage<AppProps> = ({ Component, pageProps }) => (
   <ThemeProvider theme={{ colors: themeLight }}>
     <GlobalStyles />
     <ToastContainer position="bottom-left" limit={3} autoClose={3000} />
-    <Component {...pageProps} />
+    <CheckoutProvider>
+      <Component {...pageProps} />
+    </CheckoutProvider>
   </ThemeProvider>
 );
 

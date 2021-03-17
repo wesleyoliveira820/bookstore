@@ -19,7 +19,8 @@
       "@interfaces/*": ["interfaces/*"],
       "@services/*": ["services/*"],
       "@utils/*": ["utils/*"],
-      "@store/*": ["store/*"]
+      "@store/*": ["store/*"],
+      "@contexts/*": ["contexts/*"]
     },
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,

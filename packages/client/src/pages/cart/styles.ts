@@ -11,13 +11,12 @@ export const Content = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin: 0 auto 16px;
+  margin: 24px auto 16px;
 `;
 
 export const CardContainer = styled.ul`
   max-width: 648px;
   width: 100%;
-  margin-top: 24px;
 
   > h4 {
     font-size: 21px;

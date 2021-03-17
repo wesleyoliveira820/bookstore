@@ -40,6 +40,10 @@ const ResumePurchase: FC = () => {
     )
   );
 
+  function handleGoCheckoutPage() {
+    Router.push("/checkout/shippment");
+  }
+
   return (
     <Container>
       <h4 id="title-resume-purchase">Resumo da compra</h4>
@@ -65,7 +69,9 @@ const ResumePurchase: FC = () => {
           </RowPropertie>
         </ul>
         <Condition condition={Router.pathname !== "/cart"}>
-          <Button size="large">Finalizar pedido</Button>
+          <Button size="large" onClick={handleGoCheckoutPage}>
+            Finalizar pedido
+          </Button>
         </Condition>
       </Content>
     </Container>

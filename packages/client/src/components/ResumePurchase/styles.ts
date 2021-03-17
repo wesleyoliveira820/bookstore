@@ -5,7 +5,6 @@ interface IRowProps {
 }
 
 export const Container = styled.div`
-  margin-top: 24px;
   max-width: 456px;
   width: 100%;
 
