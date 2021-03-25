@@ -1,4 +1,5 @@
 import { FC, useRef } from "react";
+import Router from "next/router";
 import { FormHandles, SubmitHandler } from "@unform/core";
 
 import InputText from "@components/InputText";
@@ -18,6 +19,7 @@ const ShippmentForm: FC = () => {
 
     try {
       await setAddressInfo(addressInfo);
+      Router.push("/checkout/payment");
     } catch (errors) {
       formRef.current?.setErrors(errors);
     }

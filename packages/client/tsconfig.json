@@ -21,7 +21,8 @@
       "@utils/*": ["utils/*"],
       "@store/*": ["store/*"],
       "@contexts/*": ["contexts/*"],
-      "@hooks/*": ["hooks/*"]
+      "@hooks/*": ["hooks/*"],
+      "@layouts/*": ["layouts/*"]
     },
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,

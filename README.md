@@ -32,7 +32,7 @@ Bookstore nada mais é do que uma simples loja virtual de livros onde tem como p
 - [x] Listagem de produtos
 - [x] CRUD de produtos no carrinho de compras
 - [x] Checkout 1 - Formulário de informações de envio
-- [ ] Checkout 2 - Escolha de método de pagamento
+- [x] Checkout 2 - Escolha de método de pagamento
 - [ ] Checkout 3 - Criação de pedido e integração com mercado pago
 
 ### Tecnologias utilizadas (Até o momento)

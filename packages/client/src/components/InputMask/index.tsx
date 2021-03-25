@@ -1,16 +1,18 @@
-import { useEffect, useRef, FC } from "react";
+import { useEffect, useRef, FC, ChangeEvent } from "react";
 import { useField } from "@unform/core";
+import InputMask, { ReactInputMask } from "react-input-mask";
 
 import InputTextLayout from "@layouts/InputText";
 
-interface Props {
+interface InputProps {
   name: string;
+  mask: string;
+  placeholder: string;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-type InputProps = JSX.IntrinsicElements["input"] & Props;
-
-const InputText: FC<InputProps> = ({ name, ...rest }) => {
-  const inputRef = useRef<HTMLInputElement>(null);
+const InputText: FC<InputProps> = ({ name, mask, ...rest }) => {
+  const inputRef = useRef<ReactInputMask>(null);
 
   const { fieldName, defaultValue, registerField, error } = useField(name);
 
@@ -30,7 +32,8 @@ const InputText: FC<InputProps> = ({ name, ...rest }) => {
 
   return (
     <InputTextLayout error={error}>
-      <input
+      <InputMask
+        mask={mask}
         className="input-text-form"
         id={fieldName}
         ref={inputRef}
