@@ -1,37 +1,32 @@
 import { FC, useState, ChangeEvent, useRef } from "react";
 import Card from "react-credit-cards";
 import { FormHandles, SubmitHandler } from "@unform/core";
-import InputMask from "@components/InputMask";
 
+import InputMask from "@components/InputMask";
 import InputText from "@components/InputText";
 import Button from "@components/Button";
-
 import useCheckout from "@hooks/useCheckout";
-import { Container, Form } from "./styles";
+import { ICreditCardProps } from "@interfaces/checkout";
 
-interface IDataCardProps {
-  card_number: string;
-  name: string;
-  cvv: number;
-  cpf: string;
-  expiry: string;
-}
+import { Container, Form } from "./styles";
 
 const PaymentFormCreditCard: FC = () => {
   const initial_state = {
     name: "",
     card_number: "",
-    cvv: 0,
+    cvv: "",
     cpf: "",
     expiry: "",
   };
 
   const formRef = useRef<FormHandles>(null);
   const { setPaymentInfo } = useCheckout();
-  const [card, setCard] = useState<IDataCardProps>(initial_state);
+  const [card, setCard] = useState<ICreditCardProps>(initial_state);
   const [focusCVV, setFocusCVV] = useState<boolean>(false);
 
-  const handleSubmitForm: SubmitHandler<IDataCardProps> = async (dataCard) => {
+  const handleSubmitForm: SubmitHandler<ICreditCardProps> = async (
+    dataCard
+  ) => {
     formRef.current?.setErrors({});
 
     try {

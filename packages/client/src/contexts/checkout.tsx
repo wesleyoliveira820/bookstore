@@ -1,24 +1,16 @@
-import { IAddressProps } from "@interfaces/checkout";
+import { IAddressProps, ICreditCardProps } from "@interfaces/checkout";
 import { FC, createContext, useState } from "react";
 import { validateAddress, validatePaymentInfo } from "validators/checkout";
 
-interface IDataCardProps {
-  card_number: string;
-  name: string;
-  cvv: number;
-  cpf: string;
-  expiry: string;
-}
-
 interface ICheckoutProps {
   address: IAddressProps;
-  payment: IDataCardProps;
+  payment: ICreditCardProps;
 }
 
 interface IContextProps {
   checkout: ICheckoutProps;
   setAddressInfo: (addressInfo: IAddressProps) => void;
-  setPaymentInfo: (paymentInfo: IDataCardProps) => void;
+  setPaymentInfo: (paymentInfo: ICreditCardProps) => void;
 }
 
 const INITIAL_CONTEXT = {
@@ -36,7 +28,7 @@ const INITIAL_CONTEXT = {
     card_number: "",
     name: "",
     expiry: "",
-    cvv: 0,
+    cvv: "",
     cpf: "",
   },
 };
@@ -60,7 +52,7 @@ const CheckoutProvider: FC = ({ children }) => {
     setCheckout({ ...checkout, address: addressInfo });
   }
 
-  async function setPaymentInfo(paymentInfo: IDataCardProps) {
+  async function setPaymentInfo(paymentInfo: ICreditCardProps) {
     const validation = await validatePaymentInfo(paymentInfo);
 
     if (validation) {

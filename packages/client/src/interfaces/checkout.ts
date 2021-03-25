@@ -8,3 +8,11 @@ export interface IAddressProps {
   street: string;
   number: string;
 }
+
+export interface ICreditCardProps {
+  card_number: string;
+  name: string;
+  cvv: string;
+  cpf: string;
+  expiry: string;
+}

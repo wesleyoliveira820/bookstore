@@ -1,16 +1,8 @@
-import { IAddressProps } from "@interfaces/checkout";
+import { IAddressProps, ICreditCardProps } from "@interfaces/checkout";
 import * as Yup from "yup";
 
 interface Errors {
   [key: string]: string;
-}
-
-interface IDataCardProps {
-  card_number: string;
-  name: string;
-  cvv: number;
-  cpf: string;
-  expiry: string;
 }
 
 export async function validateAddress(
@@ -85,7 +77,7 @@ export async function validateAddress(
   }
 }
 
-export async function validatePaymentInfo(paymentInfo: IDataCardProps) {
+export async function validatePaymentInfo(paymentInfo: ICreditCardProps) {
   const schema = Yup.object().shape({
     card_number: Yup.string()
       .matches(/^[0-9]+$/, "Este campo deve conter apenas números.")
