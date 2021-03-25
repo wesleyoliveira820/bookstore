@@ -22,7 +22,8 @@
       "@store/*": ["store/*"],
       "@contexts/*": ["contexts/*"],
       "@hooks/*": ["hooks/*"],
-      "@layouts/*": ["layouts/*"]
+      "@layouts/*": ["layouts/*"],
+      "@validators/*": ["validators/*"]
     },
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,

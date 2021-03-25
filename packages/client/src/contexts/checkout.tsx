@@ -1,6 +1,6 @@
 import { IAddressProps, ICreditCardProps } from "@interfaces/checkout";
 import { FC, createContext, useState } from "react";
-import { validateAddress, validatePaymentInfo } from "validators/checkout";
+import { addressValidator, creditCardValidator } from "@validators/checkout";
 
 interface ICheckoutProps {
   address: IAddressProps;
@@ -43,7 +43,7 @@ const CheckoutProvider: FC = ({ children }) => {
   const [checkout, setCheckout] = useState<ICheckoutProps>(INITIAL_CONTEXT);
 
   async function setAddressInfo(addressInfo: IAddressProps) {
-    const validation = await validateAddress(addressInfo);
+    const validation = await addressValidator(addressInfo);
 
     if (validation) {
       throw validation;
@@ -53,7 +53,7 @@ const CheckoutProvider: FC = ({ children }) => {
   }
 
   async function setPaymentInfo(paymentInfo: ICreditCardProps) {
-    const validation = await validatePaymentInfo(paymentInfo);
+    const validation = await creditCardValidator(paymentInfo);
 
     if (validation) {
       throw validation;
