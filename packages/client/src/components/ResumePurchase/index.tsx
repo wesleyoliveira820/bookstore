@@ -4,14 +4,10 @@ import { useSelector } from "react-redux";
 import Button from "@components/Button";
 
 import { formatPrice } from "@utils/fotmat";
-import { IProductProps } from "@interfaces/products";
+import { ICartProductProps } from "@interfaces/products";
 
 import Condition from "@components/Condition";
 import { Container, Content, RowPropertie } from "./styles";
-
-interface ICartProductProps extends IProductProps {
-  quantity_cart: number;
-}
 
 interface IState {
   cart: ICartProductProps[];
