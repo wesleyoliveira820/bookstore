@@ -6,6 +6,7 @@ export default {
   },
   bg: {
     primary: "#FFFFFF",
+    secondary: "#d4d8d9",
   },
   text: {
     primary: "#333333",

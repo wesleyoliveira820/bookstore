@@ -4,6 +4,7 @@ export interface IColorProps {
   };
   bg: {
     primary: string;
+    secondary: string;
   };
   text: {
     primary: string;

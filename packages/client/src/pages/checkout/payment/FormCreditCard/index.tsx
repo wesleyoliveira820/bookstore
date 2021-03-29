@@ -1,4 +1,5 @@
 import { FC, useState, ChangeEvent, useRef } from "react";
+import { useRouter } from "next/router";
 import Card from "react-credit-cards";
 import { FormHandles, SubmitHandler } from "@unform/core";
 
@@ -21,6 +22,7 @@ const PaymentFormCreditCard: FC = () => {
 
   const formRef = useRef<FormHandles>(null);
   const { setPaymentInfo } = useCheckout();
+  const router = useRouter();
   const [card, setCard] = useState<ICreditCardProps>(initial_state);
   const [focusCVV, setFocusCVV] = useState<boolean>(false);
 
@@ -28,7 +30,7 @@ const PaymentFormCreditCard: FC = () => {
     dataCard
   ) => {
     formRef.current?.setErrors({});
-
+    router.push("/checkout/confirm");
     try {
       await setPaymentInfo(dataCard);
     } catch (errors) {
