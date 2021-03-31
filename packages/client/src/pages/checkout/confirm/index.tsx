@@ -1,4 +1,5 @@
 import { NextPage } from "next";
+import Head from "next/head";
 
 import Header from "@components/Header";
 import ResumePurchase from "@components/ResumePurchase";
@@ -10,6 +11,9 @@ import { Container, Content } from "./styles";
 
 const ConfirmCheckout: NextPage = () => (
   <Container>
+    <Head>
+      <title>Confirmar informações</title>
+    </Head>
     <Header />
     <Content>
       <div id="container-table-button">

@@ -1,4 +1,5 @@
 import { NextPage } from "next";
+import Head from "next/head";
 import { FaRegCreditCard } from "react-icons/fa";
 
 import Header from "@components/Header";
@@ -16,6 +17,9 @@ import {
 
 const Payment: NextPage = () => (
   <Container>
+    <Head>
+      <title>Informações de pagamento</title>
+    </Head>
     <Header />
     <Content>
       <OptionContainer>

@@ -1,4 +1,5 @@
 import { NextPage } from "next";
+import Head from "next/head";
 
 import Header from "@components/Header";
 import ResumePurchase from "@components/ResumePurchase";
@@ -8,6 +9,9 @@ import { Container, Content } from "./styles";
 
 const Shippment: NextPage = () => (
   <Container>
+    <Head>
+      <title>Informações de envio</title>
+    </Head>
     <Header />
     <Content>
       <Form />
