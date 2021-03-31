@@ -12,7 +12,7 @@ import { Container, Form } from "./styles";
 const ShippmentForm: FC = () => {
   const formRef = useRef<FormHandles>(null);
 
-  const { setAddressInfo } = useCheckout();
+  const { setAddressInfo, checkout } = useCheckout();
 
   const handleOnSubmit: SubmitHandler<IAddressProps> = async (addressInfo) => {
     formRef.current?.setErrors({});
@@ -28,7 +28,11 @@ const ShippmentForm: FC = () => {
   return (
     <Container>
       <h4 id="title-shippment">Adicionar informações de envio</h4>
-      <Form ref={formRef} onSubmit={handleOnSubmit}>
+      <Form
+        ref={formRef}
+        onSubmit={handleOnSubmit}
+        initialData={checkout.address}
+      >
         <InputText name="name" placeholder="Nome Completo" autoFocus />
         <InputText name="email" placeholder="Seu melhor email" />
         <InputText name="zip_code" placeholder="CEP" />

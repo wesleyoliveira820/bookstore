@@ -21,7 +21,7 @@ const PaymentFormCreditCard: FC = () => {
   };
 
   const formRef = useRef<FormHandles>(null);
-  const { setPaymentInfo } = useCheckout();
+  const { setPaymentInfo, checkout } = useCheckout();
   const router = useRouter();
   const [card, setCard] = useState<ICreditCardProps>(initial_state);
   const [focusCVV, setFocusCVV] = useState<boolean>(false);
@@ -58,7 +58,11 @@ const PaymentFormCreditCard: FC = () => {
         locale={{ valid: "Expira em" }}
         focused={focusCVV ? "cvc" : "name"}
       />
-      <Form ref={formRef} onSubmit={handleSubmitForm}>
+      <Form
+        ref={formRef}
+        onSubmit={handleSubmitForm}
+        initialData={checkout.payment}
+      >
         <InputText
           name="card_number"
           placeholder="Número do cartão"
