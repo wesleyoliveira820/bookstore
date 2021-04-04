@@ -21,7 +21,7 @@
   <img src="./.github/show.gif" />
 </p>
 
-Bookstore nada mais é do que uma simples loja virtual de livros onde tem como principais funcionalidades um fluxo de escolha de produto, carrinho e checkout para pagamento, o principal objetivo de realizar este projeto foi para aprender e entender como funcionam certas tecnologias como Next.JS, api de pagamentos do mercado pago (Ainda será implementado), conceitos de SSR (Server side rendering) entre outros. Este projeto ainda não foi concluído e o readme será atualizado conforme as alterações no projeto.
+Bookstore nada mais é do que uma simples loja virtual de livros onde tem como principais funcionalidades um fluxo de escolha de produto, carrinho e checkout para pagamento, o principal objetivo de realizar este projeto foi para aprender e entender como funcionam certas tecnologias como Next.JS, conceitos de SSR (Server side rendering) entre outros.
 
 ### Preview
 
@@ -33,7 +33,6 @@ Bookstore nada mais é do que uma simples loja virtual de livros onde tem como p
 - [x] CRUD de produtos no carrinho de compras
 - [x] Checkout 1 - Formulário de informações de envio
 - [x] Checkout 2 - Escolha de método de pagamento
-- [ ] Checkout 3 - Criação de pedido e integração com mercado pago
 
 ### Tecnologias utilizadas (Até o momento)
 
