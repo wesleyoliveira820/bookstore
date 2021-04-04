@@ -4,14 +4,10 @@ import { useSelector } from "react-redux";
 import Button from "@components/Button";
 
 import { formatPrice } from "@utils/fotmat";
-import { ICartProductProps } from "@interfaces/products";
 
 import Condition from "@components/Condition";
+import { IReduxState } from "@interfaces/redux";
 import { Container, Content, RowPropertie } from "./styles";
-
-interface IState {
-  cart: ICartProductProps[];
-}
 
 interface IProps {
   showButton?: boolean;
@@ -30,7 +26,7 @@ const ResumePurchase: FC<IProps> = ({ showButton = false }) => {
     return sumTotal;
   }
 
-  const total = useSelector((state: IState) =>
+  const total = useSelector((state: IReduxState) =>
     formatPrice(
       state.cart.reduce(
         (totalSum, { unit_price, quantity_cart }) =>

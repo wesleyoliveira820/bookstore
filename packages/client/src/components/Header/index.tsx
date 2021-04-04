@@ -5,14 +5,11 @@ import { useSelector } from "react-redux";
 import Logo from "@assets/logo.svg";
 import Cart from "@assets/cart-outline.svg";
 
+import { IReduxState } from "@interfaces/redux";
 import { Container, Content, CartLink } from "./styles";
 
-interface IState {
-  cart: [];
-}
-
 const Header: FC = () => {
-  const { cart } = useSelector((state: IState) => state);
+  const { cart } = useSelector((state: IReduxState) => state);
 
   return (
     <Container>
