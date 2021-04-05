@@ -1,14 +1,17 @@
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { NextPage } from "next";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 import Header from "@components/Header";
 import ResumePurchase from "@components/ResumePurchase";
 import Button from "@components/Button";
-
 import useCheckout from "@hooks/useCheckout";
-import { useEffect } from "react";
-import { useRouter } from "next/router";
+import { deleteAllCart } from "@store/modules/cart/actions";
+
 import TableInfo from "./TableInfo";
+import ModalConfirmPurchase from "./ModalConfirmPurchase";
 
 import { Container, Content } from "./styles";
 
@@ -16,7 +19,9 @@ type CheckoutProperty = "address" | "payment";
 
 const ConfirmCheckout: NextPage = () => {
   const { checkout } = useCheckout();
+  const dispatch = useDispatch();
   const router = useRouter();
+  const [showModal, setShowModal] = useState<boolean>(false);
 
   function objectIsEmpty(objectProperty: CheckoutProperty) {
     const values = Object.values(checkout[objectProperty]);
@@ -26,6 +31,11 @@ const ConfirmCheckout: NextPage = () => {
     }
 
     return false;
+  }
+
+  function handleConfirmPurchase() {
+    dispatch(deleteAllCart());
+    setShowModal(true);
   }
 
   useEffect(() => {
@@ -44,11 +54,14 @@ const ConfirmCheckout: NextPage = () => {
         <div id="container-table-button">
           <TableInfo />
           <div id="button-container">
-            <Button size="large">Confirmar e fazer pedido</Button>
+            <Button size="large" onClick={handleConfirmPurchase}>
+              Confirmar e fazer pedido
+            </Button>
           </div>
         </div>
         <ResumePurchase />
       </Content>
+      {showModal && <ModalConfirmPurchase />}
     </Container>
   );
 };

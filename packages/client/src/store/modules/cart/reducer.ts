@@ -45,6 +45,10 @@ const cartReducer = (
           draft.splice(productIndex, 1);
         }
       });
+
+    case "@cart/DELETE_ALL":
+      state = INITIAL_STATE;
+      return state;
     default:
       return state;
   }

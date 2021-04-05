@@ -11,6 +11,7 @@ interface IContextProps {
   checkout: ICheckoutProps;
   setAddressInfo: (addressInfo: IAddressProps) => void;
   setPaymentInfo: (paymentInfo: ICreditCardProps) => void;
+  deleteAllData: () => void;
 }
 
 const INITIAL_CONTEXT = {
@@ -37,6 +38,7 @@ export const CheckoutContext = createContext<IContextProps>({
   checkout: INITIAL_CONTEXT,
   setAddressInfo: () => null,
   setPaymentInfo: () => null,
+  deleteAllData: () => null,
 });
 
 const CheckoutProvider: FC = ({ children }) => {
@@ -62,9 +64,13 @@ const CheckoutProvider: FC = ({ children }) => {
     setCheckout({ ...checkout, payment: paymentInfo });
   }
 
+  function deleteAllData() {
+    setCheckout(INITIAL_CONTEXT);
+  }
+
   return (
     <CheckoutContext.Provider
-      value={{ checkout, setAddressInfo, setPaymentInfo }}
+      value={{ checkout, setAddressInfo, setPaymentInfo, deleteAllData }}
     >
       {children}
     </CheckoutContext.Provider>

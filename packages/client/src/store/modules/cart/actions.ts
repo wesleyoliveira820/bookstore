@@ -47,3 +47,9 @@ export function removeProductFromCart(id: string) {
     },
   };
 }
+
+export function deleteAllCart() {
+  return {
+    type: "@cart/DELETE_ALL",
+  };
+}
