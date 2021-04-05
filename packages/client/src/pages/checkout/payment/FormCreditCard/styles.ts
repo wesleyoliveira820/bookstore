@@ -8,14 +8,27 @@ export const Container = styled.div`
   }
 
   .rccs {
-    margin: 0;
+    margin: 0 -15px;
 
     .rccs__card {
-      width: 300px;
+      width: 264px;
+      height: 152px;
     }
 
     .rccs__card--front {
       border-radius: 10px;
+
+      .rccs__number {
+        font-size: 18px;
+      }
+
+      .rccs__name {
+        font-size: 14px;
+      }
+
+      .rccs__expiry__value {
+        font-size: 14px;
+      }
     }
   }
 `;
